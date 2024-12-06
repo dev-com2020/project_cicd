@@ -6,6 +6,7 @@ pipeline {
         INSTANCE_ID = 'i-0709fb8610650f6b0'
         AWS_ACCESS_KEY_ID = credentials('terraform')
         AWS_SECRET_ACCESS_KEY = credentials('terraform')
+
     }
     stages {
         stage('Checkout') {
