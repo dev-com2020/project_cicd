@@ -5,7 +5,6 @@ provider "aws" {
 resource "aws_instance" "app" {
   ami           = var.ami_id
   instance_type = "t2.micro"
-  key_name = "python_app.pem"
 
   tags = {
     Name = "PythonAppInstance"
