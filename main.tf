@@ -10,21 +10,6 @@ resource "aws_instance" "app" {
   tags = {
     Name = "PythonAppInstance"
   }
-  connection {
-    type = "ssh"
-    host = self.public_ip
-    user = "ec2-user"
-    private_key = file("python_app.pem")
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "sudo yum update -y", # Dostosuj do systemu operacyjnego
-      "sudo yum install -y docker", # Instalacja Dockera (dla Amazon Linux)
-      "sudo service docker start", # Uruchomienie Dockera
-      "docker run -d -p 80:80 python-app"
-    ]
-  }
 }
 
 variable "region" {
