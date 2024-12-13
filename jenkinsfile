@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent grant
     environment {
         DOCKER_IMAGE = 'python-app'
         AWS_REGION = 'us-east-1'
