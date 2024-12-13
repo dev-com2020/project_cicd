@@ -4,8 +4,8 @@ pipeline {
         DOCKER_IMAGE = 'python-app'
         AWS_REGION = 'us-east-1'
         INSTANCE_ID = 'i-0709fb8610650f6b0'
-        AWS_ACCESS_KEY_ID = credentials('terraform')
-        AWS_SECRET_ACCESS_KEY = credentials('terraform')
+        AWS_ACCESS_KEY_ID = credentials('terra')
+        AWS_SECRET_ACCESS_KEY = credentials('terra')
 
     }
     stages {
@@ -19,11 +19,11 @@ pipeline {
                 sh 'python3 -m unittest test_app.py'
             }
         }
-        stage('Build Docker Image') {
-            steps {
-                sh 'sudo docker build -t $DOCKER_IMAGE .'
-            }
-        }
+        // stage('Build Docker Image') {
+        //     steps {
+        //         sh 'sudo docker build -t $DOCKER_IMAGE .'
+        //     }
+        // }
                 stage('Terraform Init') {
             steps {
                 sh 'terraform init'
