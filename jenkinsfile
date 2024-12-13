@@ -1,5 +1,5 @@
 pipeline {
-    agent grant
+    agent none
     environment {
         DOCKER_IMAGE = 'python-app'
         AWS_REGION = 'us-east-1'
@@ -10,11 +10,13 @@ pipeline {
     }
     stages {
         stage('Checkout') {
+            agent {label 'grant'}
             steps {
                 checkout scm
             }
         }
         stage('Run Tests') {
+            agent any
             steps {
                 sh 'python3 -m unittest test_app.py'
             }
@@ -25,6 +27,7 @@ pipeline {
         //     }
         // }
                 stage('Terraform Init') {
+                    agent any
             steps {
                 sh 'terraform init'
             }
@@ -35,11 +38,13 @@ pipeline {
         //     }
         // }
         stage('Terraform Plan') {
+            agent any
             steps {
                 sh 'terraform plan -out=tfplan'
             }
         }
         stage('Deploy to AWS') {
+            agent any
             steps {
                 script {
                     def testPassed = sh(script: 'python3 -m unittest test_app.py', returnStatus: true) == 0
