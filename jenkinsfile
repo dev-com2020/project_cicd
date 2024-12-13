@@ -16,7 +16,7 @@ pipeline {
             }
         }
         stage('Run Tests') {
-            agent any
+            agent {label 'grant'}
             steps {
                 sh 'python3 -m unittest test_app.py'
             }
@@ -27,7 +27,7 @@ pipeline {
         //     }
         // }
                 stage('Terraform Init') {
-                    agent any
+                    agent {label 'grant'}
             steps {
                 sh 'terraform init'
             }
@@ -38,13 +38,13 @@ pipeline {
         //     }
         // }
         stage('Terraform Plan') {
-            agent any
+            agent {label 'grant'}
             steps {
                 sh 'terraform plan -out=tfplan'
             }
         }
         stage('Deploy to AWS') {
-            agent any
+            agent {label 'grant'}
             steps {
                 script {
                     def testPassed = sh(script: 'python3 -m unittest test_app.py', returnStatus: true) == 0
