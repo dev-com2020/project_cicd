@@ -7,7 +7,7 @@ class TestApp(unittest.TestCase):
         self.assertEqual(hello_world(),"Hello World!")
     
     def test_hello2(self):
-        self.assertEqual(hello_world2(),"Python is awesome!!!!")
+        self.assertEqual(hello_world2(),"Python is awesome!")
     
     def test_hello3(self):
         self.assertEqual(hello_world3(),"Selenium is awesome!")
