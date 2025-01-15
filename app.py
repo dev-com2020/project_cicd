@@ -2,7 +2,7 @@ def hello_world():
     return "Hello World!"
 
 def hello_world2():
-    return "Python is awesome!"
+    return "Python jest super!"
 
 def hello_world3():
     return "Selenium is awesome!"
