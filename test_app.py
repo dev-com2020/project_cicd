@@ -4,7 +4,7 @@ from app import hello_world, hello_world2, hello_world3
 class TestApp(unittest.TestCase):
 
     def test_hello(self):
-        self.assertEqual(hello_world(),"Hello World!")
+        self.assertEqual(hello_world(),"Witaj świecie")
     
     def test_hello2(self):
         self.assertEqual(hello_world2(),"Python is awesome!")
