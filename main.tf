@@ -7,7 +7,7 @@ resource "aws_instance" "app" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "PythonAppInstance_2025"
+    Name = "PythonAppInstance_2025_testowy"
   }
 }
 
